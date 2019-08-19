@@ -5,6 +5,7 @@ pipeline {
 			steps {
 				sh "python3 app.py"
 				sleep 10
+				sh "killall python3 app.py"
 			}
 		}
 
