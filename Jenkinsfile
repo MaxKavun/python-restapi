@@ -16,7 +16,14 @@ pipeline {
 		stage('Deploy to staging') {
 			steps {
 				sh "docker run -d --rm -p 8765:5000 --name flask-app cruelgangsta/python-restapi-flask:$BUILD_NUMBER"
+				sleep 60
 			}
+		}
+	}
+
+	post {
+		always {
+			sh "docker stop flask-app"
 		}
 	}
 }
