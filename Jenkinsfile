@@ -15,7 +15,7 @@ pipeline {
 
 		stage('Deploy to staging') {
 			steps {
-				sh "docker run -d --rm -p 8765:8080 --name flask-app cruelgangsta/python-restapi-flask"
+				sh "docker run -d -p 8765:5000 --name flask-app cruelgangsta/python-restapi-flask"
 			}
 		}
 	}
