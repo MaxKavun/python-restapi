@@ -13,15 +13,9 @@ pipeline {
 			}
 		}
 
-		stage('Check if container exists') {
-			steps {
-				sh "docker rm flask-app"
-			}
-		}
-
 		stage('Deploy to staging') {
 			steps {
-				sh "docker run -d -p 8765:5000 --name flask-app cruelgangsta/python-restapi-flask:$BUILD_NUMBER"
+				sh "docker run -d --rm -p 8765:5000 --name flask-app cruelgangsta/python-restapi-flask:$BUILD_NUMBER"
 			}
 		}
 	}
