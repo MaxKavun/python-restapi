@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Docker build') {
 			steps {
-				sh "docker build -t cruelgangsta/python-restapi-flask ."
+				sh "docker build -t cruelgangsta/python-restapi-flask:$BUILD_NUMBER ."
 			}
 		}
 
