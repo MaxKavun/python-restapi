@@ -9,13 +9,13 @@ pipeline {
 
 		stage('Push to the docker hub') {
 			steps {
-				sh "docker push cruelgangsta/python-restapi-flask"
+				sh "docker push cruelgangsta/python-restapi-flask:$BUILD_NUMBER"
 			}
 		}
 
 		stage('Deploy to staging') {
 			steps {
-				sh "docker run -d -p 8765:5000 --name flask-app cruelgangsta/python-restapi-flask"
+				sh "docker run -d -p 8765:5000 --name flask-app cruelgangsta/python-restapi-flask:$BUILD_NUMBER"
 			}
 		}
 	}
