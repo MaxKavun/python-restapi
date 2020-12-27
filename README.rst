@@ -1,2 +1,6 @@
-Wsgi middleware implementation
 ========
+Pure WSGI
+========
+Middleware implementation of WSGI
+--------
+Description in progress...
